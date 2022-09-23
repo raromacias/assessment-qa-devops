@@ -36,6 +36,7 @@ app.get('/api/robots', (req, res) => {
         res.status(200).send(bots)
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
+        rollbar.error('No bots allowed')
         res.sendStatus(400)
     }
 })
@@ -48,6 +49,7 @@ app.get('/api/robots/five', (req, res) => {
         res.status(200).send({choices, compDuo})
     } catch (error) {
         console.log('ERROR GETTING FIVE BOTS', error)
+        rollbar.critical('no five bots')
         res.sendStatus(400)
     }
 })
