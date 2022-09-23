@@ -75,9 +75,11 @@ app.post('/api/duel', (req, res) => {
         if (compHealthAfterAttack > playerHealthAfterAttack) {
             playerRecord.losses++
             res.status(200).send('You lost!')
+            rollbar.log('Tough deal')
         } else {
-            playerRecord.losses++
+            playerRecord.wins++
             res.status(200).send('You won!')
+            rollbar.log('Hot Dawg! you win')
         }
     } catch (error) {
         console.log('ERROR DUELING', error)
@@ -90,6 +92,7 @@ app.get('/api/player', (req, res) => {
         res.status(200).send(playerRecord)
     } catch (error) {
         console.log('ERROR GETTING PLAYER STATS', error)
+        rollbar.error('sorry no luck')
         res.sendStatus(400)
     }
 })
