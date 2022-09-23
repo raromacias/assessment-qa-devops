@@ -118,7 +118,7 @@ const putBotBack = (id) => {
 }
 
 const drawFive = () => {
-    axios.get('https://assessment-qa-devops-raro.herokuapp.com/api/robots/five')
+    axios.get('/api/robots/five')
         .then(res => {
             choices = res.data.choices
             compDuo = res.data.compDuo
@@ -158,7 +158,7 @@ const reset = () => {
 }
 
 const getPlayerStats = () => {
-    axios.get('https://assessment-qa-devops-raro.herokuapp.com/api/player')
+    axios.get('/api/player')
         .then(({data: {wins, losses}}) => {
             winsText.textContent = `Wins: ${wins}`
             lossesTest.textContent = `Losses: ${losses}`
@@ -166,7 +166,7 @@ const getPlayerStats = () => {
 }
 
 const getAllBots = () => {
-    axios.get('https://assessment-qa-devops-raro.herokuapp.com/api/robots')
+    axios.get('/api/robots')
         .then(({data}) => {
             allBotsDiv.innerHTML = ''
         
