@@ -24,4 +24,18 @@ describe('shuffleArray should', () => {
         expect(myVar).toBe(true)
     })
 
+    test('check that array is not null', () => {
+        let arr = [1,2,3,4,5]
+        let result = shuffleArray(arr)
+
+        expect(result).not.toBeNull()
+    })
+
+    test('check that result of shuffle function has the same length', () => {
+        let arr = [1,2,3,4,5]
+        let result = shuffleArray(arr)
+
+        expect(result).toHaveLength(5);
+    })
+
 })

@@ -36,3 +36,13 @@ test('Selecting a bot displays it in our new div', async () => {
 
     expect(displayed).toBe(true)
 })
+
+test('Selecting see all bots button shows all bots', async () => {
+    await driver.findElement(By.id('see-all')).click()
+    await driver.sleep(300) 
+
+    const  botCard = await driver.findElement(By.className('bot-card outline'))
+    const displayed = await botCard.isDisplayed()
+
+    expect(displayed).toBe(true)
+})
